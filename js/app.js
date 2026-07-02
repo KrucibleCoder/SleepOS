@@ -4,9 +4,9 @@ gsap.registerPlugin(ScrollTrigger);
 
 const lenis = new Lenis();
 
-function raf(time){
-lenis.raf(time);
-requestAnimationFrame(raf);
+function raf(time) {
+  lenis.raf(time);
+  requestAnimationFrame(raf);
 }
 
 requestAnimationFrame(raf);
@@ -19,57 +19,53 @@ const loaderTL = gsap.timeline();
 
 loaderTL
 
-.from(".loader-text",{
+  .from(".loader-text", {
+    scale: 0.2,
 
-    scale:0.2,
+    opacity: 0,
 
-    opacity:0,
+    duration: 1.5,
 
-    duration:1.5,
+    ease: "power4.out",
+  })
 
-    ease:"power4.out"
+  .to(".loader-text", {
+    scale: 1.1,
 
-})
+    duration: 1,
+  })
 
-.to(".loader-text",{
+  .to(".loader-text", {
+    scale: 25,
 
-    scale:1.1,
+    duration: 2,
 
-    duration:1
+    ease: "power4.inOut",
+  })
 
-})
+  .to(
+    ".loader",
+    {
+      opacity: 0,
 
-.to(".loader-text",{
+      duration: 0.5,
+    },
+    "-=0.5",
+  )
 
-    scale:25,
+  .to(
+    ".hero",
+    {
+      opacity: 1,
 
-    duration:2,
+      duration: 0.8,
+    },
+    "-=0.5",
+  )
 
-    ease:"power4.inOut"
-
-})
-
-.to(".loader",{
-
-    opacity:0,
-
-    duration:.5
-
-},"-=0.5")
-
-.to(".hero",{
-
-    opacity:1,
-
-    duration:.8
-
-},"-=0.5")
-
-.set(".loader",{
-
-    display:"none"
-
-});
+  .set(".loader", {
+    display: "none",
+  });
 
 /*logo animation*/
 
@@ -79,8 +75,8 @@ const totalFrames = 101; // Change to 101 if your files are 000 to 100
 
 // 1. Generate frame paths correctly
 for (let i = 0; i < totalFrames; i++) {
-    const num = String(i).padStart(3, "0");
-    frames.push(`assets/logo animation/logo/logo-ani_${num}.png`);
+  const num = String(i).padStart(3, "0");
+  frames.push(`assets/logo animation/logo/logo-ani_${num}.png`);
 }
 
 let animation;
@@ -88,387 +84,288 @@ let current = 0;
 
 // 2. Play forward on hover
 logo.addEventListener("mouseenter", () => {
-    clearInterval(animation);
-    
-    animation = setInterval(() => {
-        if (current < frames.length - 1) {
-            current++;
-            logo.src = frames[current];
-        } else {
-            clearInterval(animation);
-        }
-    }, 30);
+  clearInterval(animation);
+
+  animation = setInterval(() => {
+    if (current < frames.length - 1) {
+      current++;
+      logo.src = frames[current];
+    } else {
+      clearInterval(animation);
+    }
+  }, 30);
 });
 
 // 3. Play backward on leave
 logo.addEventListener("mouseleave", () => {
-    clearInterval(animation);
-    
-    animation = setInterval(() => {
-        if (current > 0) {
-            current--;
-            logo.src = frames[current];
-        } else {
-            clearInterval(animation);
-        }
-    }, 30);
-});
+  clearInterval(animation);
 
+  animation = setInterval(() => {
+    if (current > 0) {
+      current--;
+      logo.src = frames[current];
+    } else {
+      clearInterval(animation);
+    }
+  }, 30);
+});
 
 /* HERO */
 
-gsap.from(".hero-title",{
+gsap.from(".hero-title", {
+  y: 180,
+  opacity: 0,
+  scale: 0.9,
 
-    y:180,
-    opacity:0,
-    scale:0.9,
+  duration: 2,
 
-    duration:2,
-
-    ease:"power4.out"
-
+  ease: "power4.out",
 });
 
-gsap.from(".hero-subtitle",{
+gsap.from(".hero-subtitle", {
+  y: 80,
 
-    y:80,
+  opacity: 0,
 
-    opacity:0,
+  duration: 1.5,
 
-    duration:1.5,
+  delay: 0.4,
 
-    delay:.4,
-
-    ease:"power3.out"
-
+  ease: "power3.out",
 });
 
-gsap.from(".hero p",{
+gsap.from(".hero p", {
+  y: 80,
+  opacity: 0,
 
-    y:80,
-    opacity:0,
+  duration: 1.5,
 
-    duration:1.5,
+  delay: 0.5,
 
-    delay:0.5,
-
-    ease:"power3.out"
-
+  ease: "power3.out",
 });
 
-gsap.from(".scroll",{
+gsap.from(".scroll", {
+  y: 40,
+  opacity: 0,
 
-    y:40,
-    opacity:0,
+  duration: 1.2,
 
-    duration:1.2,
+  delay: 1,
 
-    delay:1,
-
-    ease:"power2.out"
-
+  ease: "power2.out",
 });
 
 /* Matte Saffron Glow */
 
-gsap.to(".hero-title",{
+gsap.to(".hero-title", {
+  textShadow: "0 0 20px rgba(245,158,11,.4), 0 0 60px rgba(245,158,11,.2)",
 
-    textShadow:
-    "0 0 20px rgba(245,158,11,.4), 0 0 60px rgba(245,158,11,.2)",
+  duration: 2,
 
-    duration:2,
+  repeat: -1,
 
-    repeat:-1,
+  yoyo: true,
 
-    yoyo:true,
-
-    ease:"sine.inOut"
-
+  ease: "sine.inOut",
 });
 
-gsap.from(".hero-video video",{
+gsap.from(".hero-video video", {
+  scale: 1.2,
 
-    scale:1.2,
+  duration: 3,
 
-    duration:3,
-
-    ease:"power2.out"
-
+  ease: "power2.out",
 });
 
 /* INTRO */
 
-gsap.from(".intro-left",{
+gsap.from(".intro-left", {
+  x: -200,
+  opacity: 0,
 
-x:-200,
-opacity:0,
-
-scrollTrigger:{
-trigger:".intro",
-start:"top 70%"
-}
-
+  scrollTrigger: {
+    trigger: ".intro",
+    start: "top 70%",
+  },
 });
 
-gsap.from(".intro-right",{
+gsap.from(".intro-right", {
+  x: 200,
+  opacity: 0,
 
-x:200,
-opacity:0,
-
-scrollTrigger:{
-trigger:".intro",
-start:"top 70%"
-}
-
+  scrollTrigger: {
+    trigger: ".intro",
+    start: "top 70%",
+  },
 });
 
 /* PANELS */
 
-gsap.utils.toArray(".panel").forEach(panel=>{
+gsap.utils.toArray(".panel").forEach((panel) => {
+  gsap.from(panel, {
+    opacity: 0,
+    y: 100,
 
-gsap.from(panel,{
-
-opacity:0,
-y:100,
-
-scrollTrigger:{
-trigger:panel,
-start:"top 70%"
-}
-
-});
-
+    scrollTrigger: {
+      trigger: panel,
+      start: "top 70%",
+    },
+  });
 });
 
 /* MATTRESS SCALE */
 
-gsap.to(".mattress",{
+gsap.to(".mattress", {
+  scale: 1.15,
 
-scale:1.15,
-
-scrollTrigger:{
-trigger:".story",
-start:"top top",
-end:"bottom bottom",
-scrub:true
-}
-
+  scrollTrigger: {
+    trigger: ".story",
+    start: "top top",
+    end: "bottom bottom",
+    scrub: true,
+  },
 });
 
-gsap.from(".reveal-text",{
+gsap.from(".reveal-text", {
+  scale: 0.8,
+  opacity: 0,
 
-    scale:0.8,
-    opacity:0,
-
-    scrollTrigger:{
-        trigger:".editorial",
-        start:"top center",
-        end:"center center",
-        scrub:true
-    }
-
+  scrollTrigger: {
+    trigger: ".editorial",
+    start: "top center",
+    end: "center center",
+    scrub: true,
+  },
 });
 
-gsap.to(".editorial-image img",{
+gsap.to(".editorial-image img", {
+  scale: 1.2,
 
-    scale:1.2,
-
-    scrollTrigger:{
-        trigger:".editorial",
-        start:"top top",
-        end:"bottom top",
-        scrub:true
-    }
-
+  scrollTrigger: {
+    trigger: ".editorial",
+    start: "top top",
+    end: "bottom top",
+    scrub: true,
+  },
 });
 
+gsap.utils.toArray(".feature-panel").forEach((panel) => {
+  gsap.from(panel, {
+    opacity: 0,
+    y: 100,
 
-gsap.utils.toArray(".feature-panel").forEach(panel=>{
-
-    gsap.from(panel,{
-
-        opacity:0,
-        y:100,
-
-        scrollTrigger:{
-            trigger:panel,
-            start:"top 70%",
-            end:"top 30%",
-            scrub:true
-        }
-
-    });
-
+    scrollTrigger: {
+      trigger: panel,
+      start: "top 70%",
+      end: "top 30%",
+      scrub: true,
+    },
+  });
 });
 
+const mattressImage = document.getElementById("mattressImage");
 
-const mattressImage =
-document.getElementById("mattressImage");
+document.querySelectorAll(".feature-panel").forEach((panel) => {
+  ScrollTrigger.create({
+    trigger: panel,
 
-document
-.querySelectorAll(".feature-panel")
-.forEach(panel => {
+    start: "top center",
 
-    ScrollTrigger.create({
+    onEnter: () => {
+      gsap.to(mattressImage, {
+        opacity: 0,
 
-        trigger: panel,
+        duration: 0.3,
 
-        start: "top center",
+        onComplete: () => {
+          mattressImage.src = panel.dataset.image;
 
-        onEnter: () => {
-
-            gsap.to(mattressImage,{
-
-                opacity:0,
-
-                duration:0.3,
-
-                onComplete:()=>{
-
-                    mattressImage.src =
-                    panel.dataset.image;
-
-                    gsap.to(
-                    mattressImage,
-                    {
-                        opacity:1,
-                        duration:0.3
-                    });
-
-                }
-
-            });
-
+          gsap.to(mattressImage, {
+            opacity: 1,
+            duration: 0.3,
+          });
         },
+      });
+    },
 
-        onEnterBack: () => {
+    onEnterBack: () => {
+      gsap.to(mattressImage, {
+        opacity: 0,
 
-            gsap.to(mattressImage,{
+        duration: 0.3,
 
-                opacity:0,
+        onComplete: () => {
+          mattressImage.src = panel.dataset.image;
 
-                duration:0.3,
-
-                onComplete:()=>{
-
-                    mattressImage.src =
-                    panel.dataset.image;
-
-                    gsap.to(
-                    mattressImage,
-                    {
-                        opacity:1,
-                        duration:0.3
-                    });
-
-                }
-
-            });
-
-        }
-
-    });
-
+          gsap.to(mattressImage, {
+            opacity: 1,
+            duration: 0.3,
+          });
+        },
+      });
+    },
+  });
 });
-
-
-
-
 
 /* ==========================
    LAYER DATA
 ========================== */
 
 const data = [
+  {
+    title: "Premium Fabric",
+    desc: "Soft breathable fabric designed for luxurious comfort.",
 
-{
-title:"Premium Fabric",
-desc:"Soft breathable fabric designed for luxurious comfort.",
+    features: ["Breathable", "Ultra Soft", "Cooling Touch"],
+  },
 
-features:[
-    "Breathable",
-    "Ultra Soft",
-    "Cooling Touch"
-]
-},
+  {
+    title: "Cooling Memory Foam",
+    desc: "Contours to your body and relieves pressure points.",
 
-{
-title:"Cooling Memory Foam",
-desc:"Contours to your body and relieves pressure points.",
+    features: ["Cooling Gel", "Pressure Relief", "Body Contouring"],
+  },
 
-features:[
-    "Cooling Gel",
-    "Pressure Relief",
-    "Body Contouring"
-]
-},
+  {
+    title: "Orthopedic Support",
+    desc: "Provides proper spinal alignment and support.",
 
-{
-title:"Orthopedic Support",
-desc:"Provides proper spinal alignment and support.",
+    features: ["Spinal Alignment", "Back Support", "Ergonomic Design"],
+  },
 
-features:[
-    "Spinal Alignment",
-    "Back Support",
-    "Ergonomic Design"
-]
-},
+  {
+    title: "Pocket Spring System",
+    desc: "Ensures motion isolation and balanced support.",
+    features: ["Motion Isolation", "Balanced Support", "Enhanced Comfort"],
+  },
 
-{
-title:"Pocket Spring System",
-desc:"Ensures motion isolation and balanced support.",
-features:[
-    "Motion Isolation",
-    "Balanced Support",
-    "Enhanced Comfort"
-]
-},
+  {
+    title: "High Density Base",
+    desc: "Enhances durability and extends mattress life.",
 
-{
-title:"High Density Base",
-desc:"Enhances durability and extends mattress life.",
-
-features:[
-    "High Density",
-    "Long Life",
-    "Maximum Stability"
-]
-}
-
+    features: ["High Density", "Long Life", "Maximum Stability"],
+  },
 ];
-
-
 
 /* ==========================
    COUNTERS
 ========================== */
 
-const counters =
-document.querySelectorAll(".counter-item");
+const counters = document.querySelectorAll(".counter-item");
 
 /* ==========================
    UPDATE LAYER INFO
 ========================== */
 
-function updateLayer(index){
+function updateLayer(index) {
+  document.getElementById("layerTitle").innerText = data[index].title;
 
-    document.getElementById("layerTitle")
-    .innerText =
-    data[index].title;
+  document.getElementById("layerDescription").innerText = data[index].desc;
 
-    document.getElementById("layerDescription")
-    .innerText =
-    data[index].desc;
-
-    counters.forEach((item,i)=>{
-
-        item.classList.toggle(
-            "active",
-            i === index
-        );
-
-    });
-
+  counters.forEach((item, i) => {
+    item.classList.toggle("active", i === index);
+  });
 }
 
 /* ==========================
@@ -476,136 +373,159 @@ function updateLayer(index){
 ========================== */
 
 const tl = gsap.timeline({
-
-    scrollTrigger:{
-        trigger:".layers-showcase",
-        start:"top top",
-        end:"bottom bottom",
-        scrub:true
-    }
-
+  scrollTrigger: {
+    trigger: ".layers-showcase",
+    start: "top top",
+    end: "bottom bottom",
+    scrub: true,
+  },
 });
 
 /* ==========================
    EXPLODE LAYERS
 ========================== */
 
-tl.to(".memory",{
+tl.to(
+  ".memory",
+  {
+    y: 120,
 
-    y:120,
+    opacity: 1,
+  },
+  0.2,
+)
 
-    opacity:1
+  .to(
+    ".support",
+    {
+      y: 240,
 
-},0.2)
+      opacity: 1,
+    },
+    0.4,
+  )
 
-.to(".support",{
+  .to(
+    ".spring",
+    {
+      y: 360,
 
-    y:240,
+      opacity: 1,
+    },
+    0.6,
+  )
 
-    opacity:1
+  .to(
+    ".base",
+    {
+      y: 480,
 
-},0.4)
+      opacity: 1,
+    },
+    0.8,
+  )
 
-.to(".spring",{
-
-    y:360,
-
-    opacity:1
-
-},0.6)
-
-.to(".base",{
-
-    y:480,
-
-    opacity:1
-
-},0.8)
-
-/* ==========================
+  /* ==========================
    REBUILD MATTRESS
 ========================== */
 
-.to(".fabric",{
-    y:0
-},1)
+  .to(
+    ".fabric",
+    {
+      y: 0,
+    },
+    1,
+  )
 
-.to(".memory",{
-    y:0
-},1)
+  .to(
+    ".memory",
+    {
+      y: 0,
+    },
+    1,
+  )
 
-.to(".support",{
-    y:0
-},1)
+  .to(
+    ".support",
+    {
+      y: 0,
+    },
+    1,
+  )
 
-.to(".spring",{
-    y:0
-},1)
+  .to(
+    ".spring",
+    {
+      y: 0,
+    },
+    1,
+  )
 
-.to(".base",{
-    y:0
-},1)
+  .to(
+    ".base",
+    {
+      y: 0,
+    },
+    1,
+  )
 
-/* ==========================
+  /* ==========================
    ZOOM IN EFFECT
 ========================== */
 
-.to(".center-panel",{
+  .to(
+    ".center-panel",
+    {
+      scale: 1.2,
 
-    scale:1.2,
+      duration: 1,
+    },
+    2,
+  )
 
-    duration:1
-
-},2)
-
-/* ==========================
+  /* ==========================
    FADE SIDE PANELS
 ========================== */
 
-.to(".left-panel",{
+  .to(
+    ".left-panel",
+    {
+      opacity: 0,
 
-    opacity:0,
+      duration: 1,
+    },
+    2,
+  )
 
-    duration:1
+  .to(
+    ".right-panel",
+    {
+      opacity: 0,
 
-},2)
-
-.to(".right-panel",{
-
-    opacity:0,
-
-    duration:1
-
-},2);
+      duration: 1,
+    },
+    2,
+  );
 
 /* ==========================
    CONTENT CHANGE ON SCROLL
 ========================== */
 
 ScrollTrigger.create({
+  trigger: ".layers-showcase",
 
-    trigger:".layers-showcase",
+  start: "top top",
 
-    start:"top top",
+  end: "bottom bottom",
 
-    end:"bottom bottom",
+  scrub: true,
 
-    scrub:true,
+  onUpdate: (self) => {
+    let index = Math.min(4, Math.floor(self.progress * 5));
 
-    onUpdate:(self)=>{
-
-        let index = Math.min(
-            4,
-            Math.floor(self.progress * 5)
-        );
-
-        updateLayer(index);
-
-    }
-
+    updateLayer(index);
+  },
 });
-
-
 
 /* ==========================================================
    HORIZONTAL CATALOGUE SCROLLER
@@ -620,7 +540,7 @@ const catalogueSlides = gsap.utils.toArray(".catalogue-item");
 /* Automatically size the wrapper based on number of slides */
 
 gsap.set(".catalogue-wrapper", {
-    width: `${catalogueSlides.length * 100}vw`
+  width: `${catalogueSlides.length * 100}vw`,
 });
 
 /* ==========================================================
@@ -628,34 +548,27 @@ gsap.set(".catalogue-wrapper", {
 ========================================================== */
 
 const horizontalScroll = gsap.to(catalogueSlides, {
+  xPercent: -100 * (catalogueSlides.length - 1),
 
-    xPercent: -100 * (catalogueSlides.length - 1),
+  ease: "none",
 
-    ease: "none",
+  scrollTrigger: {
+    trigger: ".catalogue-story",
 
-    scrollTrigger: {
+    pin: true,
 
-        trigger: ".catalogue-story",
+    scrub: 1,
 
-        pin: true,
+    snap: {
+      snapTo: 1 / (catalogueSlides.length - 1),
 
-        scrub: 1,
+      duration: 0.35,
 
-        snap: {
+      ease: "power1.inOut",
+    },
 
-            snapTo: 1 / (catalogueSlides.length - 1),
-
-            duration: 0.35,
-
-            ease: "power1.inOut"
-
-        },
-
-        end: () =>
-            "+=" + window.innerWidth * (catalogueSlides.length - 1)
-
-    }
-
+    end: () => "+=" + window.innerWidth * (catalogueSlides.length - 1),
+  },
 });
 
 /* ==========================================================
@@ -663,79 +576,65 @@ const horizontalScroll = gsap.to(catalogueSlides, {
 ========================================================== */
 
 catalogueSlides.forEach((slide) => {
+  /* Product Info */
 
-    /* Product Info */
+  gsap.from(slide.querySelector(".product-info"), {
+    y: 80,
 
-    gsap.from(slide.querySelector(".product-info"), {
+    opacity: 0,
 
-        y: 80,
+    duration: 1,
 
-        opacity: 0,
+    ease: "power3.out",
 
-        duration: 1,
+    scrollTrigger: {
+      trigger: slide,
 
-        ease: "power3.out",
+      containerAnimation: horizontalScroll,
 
-        scrollTrigger: {
+      start: "left center",
+    },
+  });
 
-            trigger: slide,
+  /* Mattress Image */
 
-            containerAnimation: horizontalScroll,
+  gsap.from(slide.querySelector("img"), {
+    scale: 0.85,
 
-            start: "left center"
+    opacity: 0,
 
-        }
+    duration: 1.2,
 
-    });
+    ease: "power3.out",
 
-    /* Mattress Image */
+    scrollTrigger: {
+      trigger: slide,
 
-    gsap.from(slide.querySelector("img"), {
+      containerAnimation: horizontalScroll,
 
-        scale: 0.85,
+      start: "left center",
+    },
+  });
 
-        opacity: 0,
+  /* Background Title */
 
-        duration: 1.2,
+  gsap.from(slide.querySelector("h2"), {
+    x: -200,
 
-        ease: "power3.out",
+    opacity: 0,
 
-        scrollTrigger: {
+    duration: 1,
 
-            trigger: slide,
+    ease: "power2.out",
 
-            containerAnimation: horizontalScroll,
+    scrollTrigger: {
+      trigger: slide,
 
-            start: "left center"
+      containerAnimation: horizontalScroll,
 
-        }
-
-    });
-
-    /* Background Title */
-
-    gsap.from(slide.querySelector("h2"), {
-
-        x: -200,
-
-        opacity: 0,
-
-        duration: 1,
-
-        ease: "power2.out",
-
-        scrollTrigger: {
-
-            trigger: slide,
-
-            containerAnimation: horizontalScroll,
-
-            start: "left center"
-
-        }
-
-    });
-
+      start: "left center",
+    },
+  });
 });
 
 /* ==========================================================
@@ -743,221 +642,171 @@ catalogueSlides.forEach((slide) => {
 ========================================================== */
 
 catalogueSlides.forEach((slide) => {
+  const image = slide.querySelector("img");
 
-    const image = slide.querySelector("img");
+  gsap.to(image, {
+    y: -80,
 
-    gsap.to(image, {
+    ease: "none",
 
-        y: -80,
+    scrollTrigger: {
+      trigger: slide,
 
-        ease: "none",
+      containerAnimation: horizontalScroll,
 
-        scrollTrigger: {
+      start: "left right",
 
-            trigger: slide,
+      end: "right left",
 
-            containerAnimation: horizontalScroll,
-
-            start: "left right",
-
-            end: "right left",
-
-            scrub: true
-
-        }
-
-    });
-
+      scrub: true,
+    },
+  });
 });
-
 
 /* ==========================
    TESTIMONIALS CARD
 ========================== */
 
-gsap.from(".testimonial-card",{
-    y:80,
-    opacity:0,
-    duration:1,
-    stagger:0.15,
+gsap.from(".testimonial-card", {
+  y: 80,
+  opacity: 0,
+  duration: 1,
+  stagger: 0.15,
 
-    scrollTrigger:{
-        trigger:".testimonials",
-        start:"top 80%",
-        once:true
-    }
+  scrollTrigger: {
+    trigger: ".testimonials",
+    start: "top 80%",
+    once: true,
+  },
 });
 
 /* ==========================
    CTA CONTENT
 ========================== */
-gsap.from(".cta-container",{
+gsap.from(".cta-container", {
+  y: 100,
 
-    y:100,
+  opacity: 0,
 
-    opacity:0,
+  duration: 1,
 
-    duration:1,
-
-    scrollTrigger:{
-        trigger:".premium-cta",
-        start:"top 70%"
-    }
-
+  scrollTrigger: {
+    trigger: ".premium-cta",
+    start: "top 70%",
+  },
 });
 
 /* ==========================
    TECH PANELS
 ========================== */
 
-const techImage =
-document.getElementById("techImage");
+const techImage = document.getElementById("techImage");
 
-document
-.querySelectorAll(".tech-panel")
-.forEach(panel=>{
+document.querySelectorAll(".tech-panel").forEach((panel) => {
+  ScrollTrigger.create({
+    trigger: panel,
 
-    ScrollTrigger.create({
+    start: "top center",
 
-        trigger:panel,
+    onEnter: () => {
+      gsap.to(techImage, {
+        opacity: 0,
 
-        start:"top center",
+        duration: 0.3,
 
-        onEnter:()=>{
+        onComplete: () => {
+          techImage.src = panel.dataset.image;
 
-            gsap.to(techImage,{
-
-                opacity:0,
-
-                duration:.3,
-
-                onComplete:()=>{
-
-                    techImage.src =
-                    panel.dataset.image;
-
-                    gsap.to(techImage,{
-                        opacity:1,
-                        duration:.3
-                    });
-
-                }
-
-            });
-
+          gsap.to(techImage, {
+            opacity: 1,
+            duration: 0.3,
+          });
         },
+      });
+    },
 
-        onEnterBack:()=>{
+    onEnterBack: () => {
+      gsap.to(techImage, {
+        opacity: 0,
 
-            gsap.to(techImage,{
+        duration: 0.3,
 
-                opacity:0,
+        onComplete: () => {
+          techImage.src = panel.dataset.image;
 
-                duration:.3,
-
-                onComplete:()=>{
-
-                    techImage.src =
-                    panel.dataset.image;
-
-                    gsap.to(techImage,{
-                        opacity:1,
-                        duration:.3
-                    });
-
-                }
-
-            });
-
-        }
-
-    });
-
+          gsap.to(techImage, {
+            opacity: 1,
+            duration: 0.3,
+          });
+        },
+      });
+    },
+  });
 });
-
 
 /* ==========================
      TABLE ROWS
 ========================== */
 
-gsap.from(".table-row",{
+gsap.from(".table-row", {
+  opacity: 0,
 
-    opacity:0,
+  y: 50,
 
-    y:50,
+  stagger: 0.1,
 
-    stagger:0.1,
-
-    scrollTrigger:{
-        trigger:".comparison-section",
-        start:"top 70%"
-    }
-
+  scrollTrigger: {
+    trigger: ".comparison-section",
+    start: "top 70%",
+  },
 });
-
 
 /* ==========================
   METRICS SECTION COUNTERS
 ========================== */
 
-const metricCounters =
-document.querySelectorAll(".counter");
+const metricCounters = document.querySelectorAll(".counter");
 
-metricCounters.forEach(counter=>{
+metricCounters.forEach((counter) => {
+  ScrollTrigger.create({
+    trigger: counter,
 
-    ScrollTrigger.create({
+    start: "top 85%",
 
-        trigger:counter,
+    once: true,
 
-        start:"top 85%",
+    onEnter: () => {
+      const target = Number(counter.dataset.target);
 
-        once:true,
+      gsap.to(counter, {
+        innerText: target,
 
-        onEnter:()=>{
+        duration: 2,
 
-            const target =
-            Number(counter.dataset.target);
+        snap: {
+          innerText: 1,
+        },
 
-            gsap.to(counter,{
-
-                innerText:target,
-
-                duration:2,
-
-                snap:{
-                    innerText:1
-                },
-
-                onUpdate:function(){
-
-                    counter.innerText =
-                    Math.floor(counter.innerText);
-
-                }
-
-            });
-
-        }
-
-    });
-
+        onUpdate: function () {
+          counter.innerText = Math.floor(counter.innerText);
+        },
+      });
+    },
+  });
 });
-
 
 /* ==========================
     FOOTER ANIMATION
 ========================== */
-gsap.from(".footer-top",{
+gsap.from(".footer-top", {
+  y: 100,
 
-    y:100,
+  opacity: 0,
 
-    opacity:0,
+  duration: 1.2,
 
-    duration:1.2,
-
-    scrollTrigger:{
-        trigger:".footer",
-        start:"top 80%"
-    }
-
+  scrollTrigger: {
+    trigger: ".footer",
+    start: "top 80%",
+  },
 });
