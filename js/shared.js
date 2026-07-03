@@ -21,7 +21,7 @@ export const animateOnScroll = (target, settings) => {
     ...settings,
     scrollTrigger: {
       trigger: target,
-      start: settings.start || 'top 70%',
+      start: settings.start || "top 70%",
       ...settings.scrollTrigger,
     },
   });

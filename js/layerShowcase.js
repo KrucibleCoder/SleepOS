@@ -53,14 +53,15 @@ export const initLayerShowcase = () => {
     return;
   }
 
-  gsap.timeline({
-    scrollTrigger: {
-      trigger: ".layers-showcase",
-      start: "top top",
-      end: "bottom bottom",
-      scrub: true,
-    },
-  })
+  gsap
+    .timeline({
+      scrollTrigger: {
+        trigger: ".layers-showcase",
+        start: "top top",
+        end: "bottom bottom",
+        scrub: true,
+      },
+    })
     .to(
       ".memory",
       {
@@ -159,7 +160,10 @@ export const initLayerShowcase = () => {
     end: "bottom bottom",
     scrub: true,
     onUpdate: (self) => {
-      const index = Math.min(layers.length - 1, Math.floor(self.progress * layers.length));
+      const index = Math.min(
+        layers.length - 1,
+        Math.floor(self.progress * layers.length),
+      );
       updateLayer(index);
     },
   });
