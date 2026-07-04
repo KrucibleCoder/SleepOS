@@ -383,100 +383,84 @@ body {
   transition: 0.5s ease;
 }
 
-.layers-showcase {
-  height: 500vh;
-  background: #000;
-  display: flex;
-}
+/* =====================================================
+   MATTRESS LAYERS SHOWCASE
+===================================================== */
 
+
+/* mattress layers */
+.layers-showcase{
+    height:500vh;
+    background:#000;
+    display:flex;
+}
 .left-panel,
-.right-panel {
-  width: 25%;
-  height: 100vh;
-  position: sticky;
-  top: 0;
-
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-
-  padding: 60px;
+.right-panel{
+    width:25%;
+    height:100vh;
+    position:sticky;
+    top:0;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    padding:60px;
 }
-
-.center-panel {
-  width: 50%;
-  height: 100vh;
-
-  position: sticky;
-  top: 0;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.center-panel{
+    width:50%;
+    height:100vh;
+    position:sticky;
+    top:0;
+    display:flex;
+    justify-content:center;
+    align-items:center;
 }
-
-.layer {
-  position: absolute;
-
-  width: 700px;
-
-  max-width: 80%;
-
-  left: 50%;
-  top: 50%;
-
-  transform: translate(-50%, -50%);
+.layer{
+    position:absolute;
+    width:700px;
+    max-width:80%;
+    left:50%;
+    top:50%;
+    transform:translate(-50%,-50%);
 }
-
 /* Layer Stack Order */
-
-.fabric {
-  z-index: 5;
+.fabric{
+    z-index:5;
 }
-
-.memory {
-  z-index: 4;
-  opacity: 0;
+.memory{
+    z-index:4;
+    opacity:0;
 }
-
-.support {
-  z-index: 3;
-  opacity: 0;
+.support{
+    z-index:3;
+    opacity:0;
 }
-
-.spring {
-  z-index: 2;
-  opacity: 0;
+.spring{
+    z-index:2;
+    opacity:0;
 }
-
-.base {
-  z-index: 1;
-  opacity: 0;
+.base{
+    z-index:1;
+    opacity:0;
 }
-
-.layer-details h2 {
-  font-size: 4rem;
-  color: rgba(255, 0, 0, 0.481);
-  line-height: 1;
+.layer-details h2{
+    font-size:4rem;
+    color:rgba(255, 0, 0, 0.481);
+    line-height:1;
 }
-
-.layer-details p {
-  color: #aaa;
-  margin-top: 20px;
-  line-height: 1.8;
+.layer-details p{
+    color:#ff0000;
+    margin-top:20px;
+    line-height:1.8;
 }
-
-.layer-counter {
-  display: flex;
-  flex-direction: column;
-  gap: 30px;
-  color: #666;
+.layer-counter{
+    display:flex;
+    flex-direction:column;
+    gap:30px;
+    color:#666;
 }
-
-.layer-counter .active {
-  color: #fff;
+.layer-counter .active{
+    color:#fff;
 }
-
 /* ==========================================================
    HORIZONTAL CATALOGUE SECTION
    Replace the old catalogue CSS with this.
