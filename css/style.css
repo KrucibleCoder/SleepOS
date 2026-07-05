@@ -1,3 +1,86 @@
+/* Hide default cursor */
+html,
+body {
+    cursor: none;
+}
+
+/* Prevent cursor on all interactive elements */
+a,
+button,
+input,
+textarea,
+select,
+label {
+    cursor: none;
+}
+
+/* Dot */
+.cur-dot {
+    position: fixed;
+
+    width: 8px;
+    height: 8px;
+
+    border-radius: 50%;
+
+    background: white;
+
+    transform: translate(-50%, -50%);
+
+    pointer-events: none;
+
+    z-index: 9999;
+
+    transition:
+        width 0.3s,
+        height 0.3s;
+}
+
+/* Ring */
+
+.cur-ring {
+
+    position: fixed;
+
+    width: 44px;
+    height: 44px;
+
+    border-radius: 50%;
+
+    border: 1px solid rgba(255,255,255,0.5);
+
+    transform: translate(-50%, -50%);
+
+    pointer-events: none;
+
+    z-index: 9998;
+
+    transition:
+        width .35s,
+        height .35s,
+        border-color .3s;
+}
+
+/* Hover Effect */
+
+.cur-dot.hover {
+
+    width:0;
+    height:0;
+
+}
+
+.cur-ring.hover {
+
+    width:80px;
+    height:80px;
+
+    border-color:#c8a96e;
+
+}
+
+/**/
+
 * {
   margin: 0;
   padding: 0;
@@ -18,45 +101,79 @@ body {
    CINEMATIC LOADER
 ========================== */
 
-.loader {
-  position: fixed;
+.loader{
 
-  inset: 0;
+    position:fixed;
+    inset:0;
 
-  background: #000;
+    background:#000;
 
-  display: flex;
+    display:flex;
+    flex-direction:column;
 
-  justify-content: center;
+    justify-content:center;
+    align-items:center;
 
-  align-items: center;
+    z-index:99999;
 
-  z-index: 99999;
-
-  overflow: hidden;
+    overflow:hidden;
 }
 
-.loader-text {
-  color: white !important;
+.loader-text{
 
-  font-size: 12vw;
+    color:#fff;
 
-  border: 2px solid rgb(0, 0, 0);
+    font-size:12vw;
+
+    font-weight:900;
+
+    line-height:1;
+
+    text-transform:none;
+
+    margin:0;
 }
 
-.hero {
-  opacity: 1;
+.loader-subtext{
+
+    color:#ffffff;
+
+    font-size:1.2vw;
+
+    font-weight:300;
+
+    letter-spacing:12px;
+
+    text-transform:uppercase;
+
+    margin-top:15px;
+
+    text-shadow:
+    0 0 10px rgb(255, 255, 255),
+    0 0 30px rgb(255, 255, 255);
+
+    opacity:.95;
 }
 
-.hero-logo {
-  width: 350px;
-  opacity: 0.5; /* Makes the logo and the shadow transparent together */
+.hero{
+    opacity:0;
+}
 
-  filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.6));
+.hero-logo{
 
-  transition:
-    filter 0.5s ease,
-    opacity 0.5s ease;
+    width:350px;
+
+    background:transparent;
+
+    object-fit:contain;
+
+    opacity:1;
+
+    mix-blend-mode:screen;
+
+    filter:
+    drop-shadow(0 0 25px rgba(255,180,40,.6));
+
 }
 
 /* ==========================
@@ -191,7 +308,7 @@ body {
 .scroll {
   margin-top: 50px;
 
-  color: #ffb347;
+  color: #ff4747;
 
   letter-spacing: 5px;
 
@@ -201,6 +318,8 @@ body {
 
   text-shadow: 0 0 12px rgba(255, 179, 71, 0.4);
 }
+
+/* INTRO SECTION */
 
 .intro {
   min-height: 100vh;
@@ -225,7 +344,7 @@ body {
 .intro p {
   font-size: 1.3rem;
   line-height: 1.8;
-  color: #ccc;
+  color: #ff0000;
 }
 
 .story {
@@ -326,13 +445,13 @@ body {
   font-size: 10vw;
   line-height: 0.9;
   text-align: center;
-  color: white;
+  color: rgba(255, 255, 255, 0.666);
 }
 
 .features-story {
   display: flex;
   min-height: 400vh;
-  background: #000000;
+  background: #000000; 
 }
 
 .sticky-mattress {
@@ -373,7 +492,7 @@ body {
 
 .feature-panel p {
   margin-top: 25px;
-  color: #aaa;
+  color: #ff0000;
   font-size: 1.2rem;
 }
 
@@ -385,7 +504,6 @@ body {
 
 /* =====================================================
    MATTRESS LAYERS SHOWCASE
-===================================================== */
 
 
 /* mattress layers */

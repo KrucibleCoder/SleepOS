@@ -6,7 +6,7 @@ export const initLogoAnimation = () => {
     return;
   }
 
-  const frames = Array.from({ length: 101 }, (_, index) => {
+  const frames = Array.from({ length: 96 }, (_, index) => {
     const number = String(index).padStart(3, "0");
     return `assets/logo animation/logo/logo-ani_${number}.png`;
   });
@@ -25,7 +25,7 @@ export const initLogoAnimation = () => {
 
       currentFrame = nextFrame;
       logo.src = frames[currentFrame];
-    }, 30);
+    }, 20);
   };
 
   logo.addEventListener("mouseenter", () => {
