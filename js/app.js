@@ -7,6 +7,7 @@ import { initLayerShowcase } from "./layerShowcase.js";
 import { initCatalogue } from "./catalogue.js";
 import { initTechSection } from "./techSection.js";
 import { initPageAnimations } from "./pageAnimations.js";
+import { initCursor } from "./cursor.js";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -27,4 +28,5 @@ window.addEventListener("DOMContentLoaded", () => {
   initCatalogue();
   initTechSection();
   initPageAnimations();
+      initCursor();
 });

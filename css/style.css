@@ -1,3 +1,86 @@
+/* Hide default cursor */
+html,
+body {
+    cursor: none;
+}
+
+/* Prevent cursor on all interactive elements */
+a,
+button,
+input,
+textarea,
+select,
+label {
+    cursor: none;
+}
+
+/* Dot */
+.cur-dot {
+    position: fixed;
+
+    width: 8px;
+    height: 8px;
+
+    border-radius: 50%;
+
+    background: white;
+
+    transform: translate(-50%, -50%);
+
+    pointer-events: none;
+
+    z-index: 9999;
+
+    transition:
+        width 0.3s,
+        height 0.3s;
+}
+
+/* Ring */
+
+.cur-ring {
+
+    position: fixed;
+
+    width: 44px;
+    height: 44px;
+
+    border-radius: 50%;
+
+    border: 1px solid rgba(255,255,255,0.5);
+
+    transform: translate(-50%, -50%);
+
+    pointer-events: none;
+
+    z-index: 9998;
+
+    transition:
+        width .35s,
+        height .35s,
+        border-color .3s;
+}
+
+/* Hover Effect */
+
+.cur-dot.hover {
+
+    width:0;
+    height:0;
+
+}
+
+.cur-ring.hover {
+
+    width:80px;
+    height:80px;
+
+    border-color:#c8a96e;
+
+}
+
+/**/
+
 * {
   margin: 0;
   padding: 0;
