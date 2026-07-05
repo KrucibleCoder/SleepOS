@@ -163,19 +163,17 @@ body {
 
     width:350px;
 
-    filter:
-    brightness(0)
-    saturate(100%)
-    invert(69%)
-    sepia(96%)
-    saturate(1023%)
-    hue-rotate(357deg)
-    brightness(102%)
-    contrast(103%)
-    drop-shadow(0 0 10px #ffffff)
-    drop-shadow(0 0 30px #ffffff);
+    background:transparent;
 
-    transition:0.5s ease;
+    object-fit:contain;
+
+    opacity:1;
+
+    mix-blend-mode:screen;
+
+    filter:
+    drop-shadow(0 0 25px rgba(255,180,40,.6));
+
 }
 
 /* ==========================
