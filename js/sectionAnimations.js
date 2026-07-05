@@ -1,23 +1,7 @@
 /* Section entrance and scroll animations for SleepOS */
 
 export const initSectionAnimations = () => {
-  gsap.from(".intro-left", {
-    x: -200,
-    opacity: 0,
-    scrollTrigger: {
-      trigger: ".intro",
-      start: "top 70%",
-    },
-  });
 
-  gsap.from(".intro-right", {
-    x: 200,
-    opacity: 0,
-    scrollTrigger: {
-      trigger: ".intro",
-      start: "top 70%",
-    },
-  });
 
   gsap.utils.toArray(".panel").forEach((panel) => {
     gsap.from(panel, {
@@ -40,24 +24,88 @@ export const initSectionAnimations = () => {
     },
   });
 
-  gsap.from(".reveal-text", {
-    scale: 0.8,
-    opacity: 0,
-    scrollTrigger: {
-      trigger: ".editorial",
-      start: "top center",
-      end: "center center",
-      scrub: true,
-    },
-  });
+/* ==========================
+   IL CAPO STYLE EDITORIAL
+========================== */
 
-  gsap.to(".editorial-image img", {
-    scale: 1.2,
-    scrollTrigger: {
-      trigger: ".editorial",
-      start: "top top",
-      end: "bottom top",
-      scrub: true,
-    },
-  });
-};
+
+
+const editorialTL = gsap.timeline({
+
+    scrollTrigger:{
+
+        trigger:".editorial",
+
+        start:"top top",
+
+        end:"+=2000",
+
+        scrub:1,
+
+        pin:true,
+
+        anticipatePin:1
+
+    }
+
+});
+
+
+// image opening animation
+
+editorialTL.to(".editorial-img",{
+
+
+    width:"100vw",
+
+    height:"100vh",
+
+    borderRadius:"0px",
+
+
+    duration:2,
+
+    ease:"power2.inOut"
+
+
+})
+
+
+
+// text reveal after image open
+
+.to(".editorial-title span",{
+
+
+    y:0,
+
+
+    stagger:.15,
+
+
+    duration:1.5,
+
+
+    ease:"power4.out"
+
+
+},"-=0.5")
+
+
+
+// description
+
+.to(".editorial-desc",{
+
+
+    opacity:1,
+
+    y:-20,
+
+
+    duration:1
+
+
+},"-=1");
+
+}

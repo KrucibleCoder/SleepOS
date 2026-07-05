@@ -413,40 +413,139 @@ body {
   }
 }
 
-.editorial {
-  position: relative;
-  height: 150vh;
-  background: #000;
+
+/* ==========================
+ IL CAPO STYLE EDITORIAL
+========================== */
+
+
+.editorial{
+
+    position:relative;
+
+    height:100vh;
+
+    background:#000;
+
+    overflow:hidden;
+
 }
 
-.editorial-image {
-  position: sticky;
-  top: 0;
-  height: 100vh;
-  overflow: hidden;
+
+
+/* pinned viewport */
+
+
+.editorial-media{
+
+    position:sticky;
+
+    top:0;
+
+    height:100vh;
+
+    width:100%;
+
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    overflow:hidden;
+
 }
 
-.editorial-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  filter: brightness(0.4);
+
+
+/* START SMALL STRIP */
+
+.editorial-img{
+
+    width:20vw;
+
+    height:12vh;
+
+
+    object-fit:cover;
+
+
+    border-radius:100px;
+
+
+    transform:scale(1);
+
+
+    will-change:
+    width,
+    height,
+    border-radius;
+
 }
 
-.editorial-text {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 10;
+
+
+/* TEXT OVERLAY */
+
+
+.editorial-content{
+
+    position:sticky;
+
+    top:0;
+
+    height:100vh;
+
+
+    margin-top:-100vh;
+
+
+    display:flex;
+
+    align-items:center;
+
+
+    padding-left:8vw;
+
+
+    pointer-events:none;
+
 }
 
-.editorial h2 {
-  font-size: 10vw;
-  line-height: 0.9;
-  text-align: center;
-  color: rgba(255, 255, 255, 0.666);
+
+
+.editorial-title{
+
+    overflow:hidden;
+
 }
+
+
+
+.editorial-title span{
+
+    display:block;
+
+
+    font-size:8vw;
+
+    font-weight:900;
+
+
+    line-height:.85;
+
+
+    color:white;
+
+
+    transform:translateY(120%);
+
+}
+
+
+
+/*FEATURES STORY*/
 
 .features-story {
   display: flex;
