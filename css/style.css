@@ -18,45 +18,81 @@ body {
    CINEMATIC LOADER
 ========================== */
 
-.loader {
-  position: fixed;
+.loader{
 
-  inset: 0;
+    position:fixed;
+    inset:0;
 
-  background: #000;
+    background:#000;
 
-  display: flex;
+    display:flex;
+    flex-direction:column;
 
-  justify-content: center;
+    justify-content:center;
+    align-items:center;
 
-  align-items: center;
+    z-index:99999;
 
-  z-index: 99999;
-
-  overflow: hidden;
+    overflow:hidden;
 }
 
-.loader-text {
-  color: white !important;
+.loader-text{
 
-  font-size: 12vw;
+    color:#fff;
 
-  border: 2px solid rgb(0, 0, 0);
+    font-size:12vw;
+
+    font-weight:900;
+
+    line-height:1;
+
+    text-transform:none;
+
+    margin:0;
 }
 
-.hero {
-  opacity: 1;
+.loader-subtext{
+
+    color:#ffffff;
+
+    font-size:1.2vw;
+
+    font-weight:300;
+
+    letter-spacing:12px;
+
+    text-transform:uppercase;
+
+    margin-top:15px;
+
+    text-shadow:
+    0 0 10px rgb(255, 255, 255),
+    0 0 30px rgb(255, 255, 255);
+
+    opacity:.95;
 }
 
-.hero-logo {
-  width: 350px;
-  opacity: 0.5; /* Makes the logo and the shadow transparent together */
+.hero{
+    opacity:0;
+}
 
-  filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.6));
+.hero-logo{
 
-  transition:
-    filter 0.5s ease,
-    opacity 0.5s ease;
+    width:350px;
+
+    filter:
+    brightness(0)
+    saturate(100%)
+    invert(69%)
+    sepia(96%)
+    saturate(1023%)
+    hue-rotate(357deg)
+    brightness(102%)
+    contrast(103%)
+    drop-shadow(0 0 10px #ffffff)
+    drop-shadow(0 0 30px #ffffff);
+
+    transition:0.5s ease;
 }
 
 /* ==========================
