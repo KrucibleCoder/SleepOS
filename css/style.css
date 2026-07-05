@@ -191,7 +191,7 @@ body {
 .scroll {
   margin-top: 50px;
 
-  color: #ffb347;
+  color: #ff4747;
 
   letter-spacing: 5px;
 
@@ -201,6 +201,8 @@ body {
 
   text-shadow: 0 0 12px rgba(255, 179, 71, 0.4);
 }
+
+
 
 .intro {
   min-height: 100vh;
@@ -225,7 +227,7 @@ body {
 .intro p {
   font-size: 1.3rem;
   line-height: 1.8;
-  color: #ccc;
+  color: #ff0000;
 }
 
 .story {
@@ -326,13 +328,13 @@ body {
   font-size: 10vw;
   line-height: 0.9;
   text-align: center;
-  color: white;
+  color: rgba(255, 255, 255, 0.666);
 }
 
 .features-story {
   display: flex;
   min-height: 400vh;
-  background: #000000;
+  background: #000000; 
 }
 
 .sticky-mattress {
@@ -373,7 +375,7 @@ body {
 
 .feature-panel p {
   margin-top: 25px;
-  color: #aaa;
+  color: #ff0000;
   font-size: 1.2rem;
 }
 
@@ -382,6 +384,9 @@ body {
   max-width: 700px;
   transition: 0.5s ease;
 }
+
+
+/* LAYERS SHOWCASE OF MATRESS SECTION */
 
 .layers-showcase {
   height: 500vh;
