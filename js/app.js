@@ -12,11 +12,14 @@ import { initCursor } from "./cursor.js";
 gsap.registerPlugin(ScrollTrigger);
 
 const lenis = new Lenis();
-function raf(time) {
-  lenis.raf(time);
-  requestAnimationFrame(raf);
-}
-requestAnimationFrame(raf);
+
+// 🔧 FIX: sync Lenis with GSAP's ticker + ScrollTrigger
+lenis.on("scroll", ScrollTrigger.update);
+
+gsap.ticker.add((time) => {
+  lenis.raf(time * 1000);
+});
+gsap.ticker.lagSmoothing(0);
 
 window.addEventListener("DOMContentLoaded", () => {
   initLoader();
@@ -28,5 +31,10 @@ window.addEventListener("DOMContentLoaded", () => {
   initCatalogue();
   initTechSection();
   initPageAnimations();
-      initCursor();
+  initCursor();
+});
+
+// 🔧 FIX: recalc ScrollTrigger positions once everything (images/fonts) has loaded
+window.addEventListener("load", () => {
+  ScrollTrigger.refresh();
 });

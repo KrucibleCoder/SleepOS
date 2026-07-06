@@ -97,6 +97,30 @@ body {
   overflow-x: hidden;
 }
 
+body::before{
+
+    content:"";
+
+    position:fixed;
+
+    inset:0;
+
+    background:
+    radial-gradient(
+      rgba(255,255,255,.15) 1px,
+      transparent 1px
+    );
+
+    background-size:4px 4px;
+
+    opacity:.04;
+
+    pointer-events:none;
+
+    z-index:999999;
+
+}
+
 /* ==========================
    CINEMATIC LOADER
 ========================== */
@@ -355,8 +379,7 @@ body {
 .sticky {
   width: 50%;
   height: 100vh;
-  position: sticky;
-  top: 0;
+  
   display: flex;
   justify-content: center;
   align-items: center;
@@ -386,7 +409,7 @@ body {
 }
 
 .panel p {
-  color: #aaa;
+  color: #ff0000;
   font-size: 1.2rem;
 }
 
@@ -536,13 +559,18 @@ body {
     line-height:.85;
 
 
-    color:white;
+    color:rgb(255, 0, 0);
 
 
     transform:translateY(120%);
 
 }
 
+.editorial-desc {
+    opacity: 0;
+    transform: translateY(20px);
+    padding-left: 8vw;
+}
 
 
 /*FEATURES STORY*/
@@ -636,7 +664,7 @@ body {
     width:700px;
     max-width:80%;
     left:50%;
-    top:50%;
+    top:40%;
     transform:translate(-50%,-50%);
 }
 /* Layer Stack Order */

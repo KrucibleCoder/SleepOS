@@ -9,6 +9,8 @@ export const initHeroAnimations = () => {
     ease: "power4.out",
   });
 
+  
+
   gsap.from(".hero-subtitle", {
     y: 80,
     opacity: 0,

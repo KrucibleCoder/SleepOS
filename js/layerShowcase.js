@@ -135,38 +135,38 @@ const tl = gsap.timeline({
 
 tl.to(".memory",{
 
-    y:120,
+    y:100,
+
+    opacity:1
+
+},0.0)
+
+
+.to(".support",{
+
+    y:220,
 
     opacity:1
 
 },0.2)
 
 
-.to(".support",{
+.to(".spring",{
 
-    y:240,
+    y:340,
 
     opacity:1
 
 },0.4)
 
 
-.to(".spring",{
+.to(".base",{
 
-    y:360,
+    y:460,
 
     opacity:1
 
 },0.6)
-
-
-.to(".base",{
-
-    y:480,
-
-    opacity:1
-
-},0.8)
 
 
 
@@ -264,8 +264,8 @@ ScrollTrigger.create({
 
         let index =
         Math.min(
-            4,
-            Math.floor(self.progress * 5)
+            5,
+            Math.floor(self.progress * 6)
         );
 
 
