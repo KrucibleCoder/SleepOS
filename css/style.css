@@ -297,6 +297,15 @@ body::before{
     0 0 40px rgba(245, 158, 11, 0.2);
 }
 
+.hero-title,
+.hero-subtitle,
+.hero-logo,
+.hero-video video{
+
+    will-change:transform;
+
+}
+
 .hero-subtitle {
   font-size: 3vw;
 

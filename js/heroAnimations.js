@@ -1,51 +1,116 @@
 /* Hero section entrance animations and subtle glow effects */
 
 export const initHeroAnimations = () => {
-  gsap.from(".hero-title", {
-    y: 180,
-    opacity: 0,
-    scale: 0.9,
-    duration: 2,
-    ease: "power4.out",
-  });
+ 
+  /* ==========================
+   HERO CINEMATIC EXPERIENCE
+========================== */
 
-  
 
-  gsap.from(".hero-subtitle", {
-    y: 80,
-    opacity: 0,
-    duration: 1.5,
-    delay: 0.4,
-    ease: "power3.out",
-  });
+const heroTL = gsap.timeline({
 
-  gsap.from(".hero p", {
-    y: 80,
-    opacity: 0,
-    duration: 1.5,
-    delay: 0.5,
-    ease: "power3.out",
-  });
+    scrollTrigger:{
 
-  gsap.from(".scroll", {
-    y: 40,
-    opacity: 0,
-    duration: 1.2,
-    delay: 1,
-    ease: "power2.out",
-  });
+        trigger:".hero",
 
-  gsap.to(".hero-title", {
-    textShadow: "0 0 20px rgba(245,158,11,.4), 0 0 60px rgba(245,158,11,.2)",
-    duration: 2,
-    repeat: -1,
-    yoyo: true,
-    ease: "sine.inOut",
-  });
+        start:"top top",
 
-  gsap.from(".hero-video video", {
-    scale: 1.2,
-    duration: 3,
-    ease: "power2.out",
-  });
-};
+        end:"bottom top",
+
+        scrub:1
+
+    }
+
+});
+
+
+heroTL
+
+
+.to(".hero-video video",{
+
+    scale:1.25,
+
+    filter:"brightness(0.45)",
+
+    ease:"none"
+
+},0)
+
+
+
+.to(".hero-title",{
+
+    y:-150,
+
+    opacity:0,
+
+    letterSpacing:"35px",
+
+    ease:"none"
+
+},0)
+
+
+
+.to(".hero-subtitle",{
+
+    y:-100,
+
+    opacity:0,
+
+    ease:"none"
+
+},0)
+
+
+
+.to(".hero-logo",{
+
+    y:-120,
+
+    opacity:0,
+
+    scale:.8,
+
+    ease:"none"
+
+},0);
+
+/* ==========================
+   HERO LOAD REVEAL
+========================== */
+
+
+gsap.from(".hero-title",{
+
+    y:120,
+
+    opacity:0,
+
+    letterSpacing:"50px",
+
+    duration:1.5,
+
+    delay:.5,
+
+    ease:"power4.out"
+
+});
+
+
+gsap.from(".hero-subtitle",{
+
+    y:60,
+
+    opacity:0,
+
+    duration:1.3,
+
+    delay:.8,
+
+    ease:"power3.out"
+
+});
+
+}
