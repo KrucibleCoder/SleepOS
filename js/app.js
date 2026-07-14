@@ -2,6 +2,7 @@ import { initLoader } from "./loader.js";
 import { initLogoAnimation } from "./logoAnimation.js";
 import { initHeroAnimations } from "./heroAnimations.js";
 import { initSectionAnimations } from "./sectionAnimations.js";
+import { initFabricStack } from "./fabricStack.js";
 import { initFeatureSection } from "./featureSection.js";
 import { initLayerShowcase } from "./layerShowcase.js";
 import { initCatalogue } from "./catalogue.js";
@@ -26,6 +27,7 @@ window.addEventListener("DOMContentLoaded", () => {
   initLogoAnimation();
   initHeroAnimations();
   initSectionAnimations();
+  initFabricStack();
   initFeatureSection();
   initLayerShowcase();
   initCatalogue();
