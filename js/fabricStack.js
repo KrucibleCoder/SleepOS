@@ -44,4 +44,40 @@ export const initFabricStack = () => {
       i * 0.15 // staggered along the scrubbed scroll timeline
     );
   });
+
+  /* ==========================
+     CLICK / HOVER INTERACTIONS
+  ========================== */
+
+  cards.forEach((card) => {
+    // subtle lift on hover, on top of its scroll-set position
+    card.addEventListener("mouseenter", () => {
+      gsap.to(card, {
+        y: "-=14",
+        duration: 0.35,
+        ease: "power2.out",
+        overwrite: "auto",
+      });
+    });
+
+    card.addEventListener("mouseleave", () => {
+      gsap.to(card, {
+        y: "+=14",
+        duration: 0.35,
+        ease: "power2.out",
+        overwrite: "auto",
+      });
+    });
+
+    // quick press-down feedback on click before navigating
+    card.addEventListener("click", (e) => {
+      gsap.to(card, {
+        scale: 0.96,
+        duration: 0.15,
+        ease: "power1.inOut",
+        yoyo: true,
+        repeat: 1,
+      });
+    });
+  });
 };

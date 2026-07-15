@@ -172,89 +172,105 @@
     <h2 class="fabric-stack-title">EXPLORE OUR LAYERS</h2>
 
     <div class="fabric-cards">
-      <div class="fabric-card">
+      <a href="#catalogue" class="fabric-card" data-fabric="premium-fabric">
         <img src="assets/images/fabric-layer.png" alt="Premium Fabric" />
         <h3>Premium Fabric</h3>
         <p>Soft, breathable &amp; luxurious</p>
-      </div>
+        <span class="fabric-card-cta">Explore →</span>
+      </a>
 
-      <div class="fabric-card">
+      <a href="#catalogue" class="fabric-card" data-fabric="memory-foam">
         <img src="assets/images/memory-layer.png" alt="Memory Foam" />
         <h3>Memory Foam</h3>
         <p>Contours perfectly to your body</p>
-      </div>
+        <span class="fabric-card-cta">Explore →</span>
+      </a>
 
-      <div class="fabric-card">
+      <a href="#catalogue" class="fabric-card" data-fabric="orthopedic-support">
         <img src="assets/images/support-layer.png" alt="Orthopedic Support" />
         <h3>Orthopedic Support</h3>
         <p>Engineered spinal alignment</p>
-      </div>
+        <span class="fabric-card-cta">Explore →</span>
+      </a>
 
-      <div class="fabric-card">
+      <a href="#catalogue" class="fabric-card" data-fabric="pocket-spring">
         <img src="assets/images/spring-layer.png" alt="Pocket Spring" />
         <h3>Pocket Spring</h3>
         <p>Motion isolation &amp; balance</p>
-      </div>
+        <span class="fabric-card-cta">Explore →</span>
+      </a>
 
-      <div class="fabric-card">
+      <a href="#catalogue" class="fabric-card" data-fabric="high-density-base">
         <img src="assets/images/base-layer.png" alt="High Density Base" />
         <h3>High Density Base</h3>
         <p>Durability &amp; stability</p>
-      </div>
+        <span class="fabric-card-cta">Explore →</span>
+      </a>
     </div>
   </div>
 </section>
 
+<!--
+  NOTE: yeh section jahan hai wahin rehne do (editorial ke baad).
+  Sirf ek alag jagah jaake apni existing catalogue section mein
+  id="catalogue" add karna hai:
 
-    <!-- Features Section -->
+  <section class="catalogue-story" id="catalogue">
+-->
 
-    <section class="features-story">
-      <div class="sticky-mattress">
-        <img
-          id="mattressImage"
-          src="assets/images/memory-mattress.png"
-          alt="Mattress"
-        />
-      </div>
 
-      <div class="features-content">
-        <div
-          class="feature-panel"
-          data-image="assets/images/memory-mattress.png"
-        >
-          <h2>MEMORY FOAM</h2>
+<!-- Features Section -->
+<section class="features-story">
+  <div class="sticky-mattress">
+    <div class="video-glow"></div>
+    <video
+      id="mattressVideo"
+      src="assets/videos/mattress.mp4"
+      data-current="assets/videos/mattress.mp4"
+      autoplay
+      muted
+      loop
+      playsinline
+    ></video>
+  </div>
 
-          <p>Adapts to your body shape and relieves pressure points.</p>
-        </div>
+  <div class="features-content">
+    <!-- Panel 01: Memory Foam -->
+    <div class="feature-panel" data-video="assets/videos/mattress.mp4">
+      <span class="feature-number">01</span>
+      <h2>Smart-Contouring Memory Foam</h2>
+      <p>Engineered with responsive aero-foam layers that precisely map to your body’s unique curvature. By dynamically distributing weight, it melts away deep pressure points across your shoulders, hips, and lower back for a weightless, cloud-like sleep experience.</p>
+    </div>
 
-        <div
-          class="feature-panel"
-          data-image="assets/images/mattress-cooling.png"
-        >
-          <h2>COOLING TECHNOLOGY</h2>
+    <!-- Panel 02: Cooling Tech -->
+    <div class="feature-panel" data-video="assets/videos/mattress.mp4">
+      <span class="feature-number">02</span>
+      <h2>Thermo-Regulating Cooling Layer</h2>
+      <p>Infused with open-cell cooling gel microcapsules that continuously capture and disperse excess body heat. Combined with an ultra-breathable weave, it delivers an active cooling touch that eliminates night sweats and maintains your optimal sleeping climate.</p>
+    </div>
 
-          <p>Keeps the sleeping surface cool and breathable.</p>
-        </div>
+    <!-- Panel 03: Orthopedic Support -->
+    <div class="feature-panel" data-video="assets/videos/mattress.mp4">
+      <span class="feature-number">03</span>
+      <h2>Multi-Zone Orthopedic Support</h2>
+      <p>Featuring an advanced high-resiliency core structured to reinforce proper spinal alignment. The pocketed transitional zones provide structural back relief while isolating motion transfer, ensuring zero disruption even if your partner shifts during the night.</p>
+    </div>
 
-        <div
-          class="feature-panel"
-          data-image="assets/images/mattress-orthopedic.png"
-        >
-          <h2>ORTHOPEDIC SUPPORT</h2>
+    <!-- Panel 04: Warranty -->
+    <div class="feature-panel" data-video="assets/videos/mattress.mp4">
+      <span class="feature-number">04</span>
+      <h2>Decade-Long Quality Assurance</h2>
+      <p>Crafted to endure using meticulously tested, elite-grade materials that prevent sag and structural breakdown over time. Rest easy with total peace of mind knowing your premium sleep architecture is backed by a fully guaranteed 10-year warranty.</p>
+    </div>
+  </div>
 
-          <p>Maintains proper spinal alignment.</p>
-        </div>
-
-        <div
-          class="feature-panel"
-          data-image="assets/images/mattress-warranty.png"
-        >
-          <h2>10 YEAR WARRANTY</h2>
-
-          <p>Premium quality backed by long-term support.</p>
-        </div>
-      </div>
-    </section>
+  <div class="feature-progress">
+    <span class="dot active"></span>
+    <span class="dot"></span>
+    <span class="dot"></span>
+    <span class="dot"></span>
+  </div>
+</section>
 
 <!-- Layers Showcase Section -->
 
