@@ -1,73 +1,75 @@
+
 @font-face {
   font-family: "Cormorant Garamond";
-  src: url("assets/font/static/CormorantGaramond-Regular.ttf") format("truetype");
+  src: url("../assets/font/static/CormorantGaramond-Regular.ttf") format("truetype");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: "Cormorant Garamond";
-  src: url("assets/font/static/CormorantGaramond-Light.ttf") format("truetype");
+  src: url("../assets/font/static/CormorantGaramond-Light.ttf") format("truetype");
   font-weight: 300;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: "Cormorant Garamond";
-  src: url("assets/font/static/CormorantGaramond-Medium.ttf") format("truetype");
+  src: url("../assets/font/static/CormorantGaramond-Medium.ttf") format("truetype");
   font-weight: 500;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: "Cormorant Garamond";
-  src: url("assets/font/static/CormorantGaramond-SemiBold.ttf") format("truetype");
+  src: url("../assets/font/static/CormorantGaramond-SemiBold.ttf") format("truetype");
   font-weight: 600;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: "Cormorant Garamond";
-  src: url("assets/font/static/CormorantGaramond-Bold.ttf") format("truetype");
+  src: url("../assets/font/static/CormorantGaramond-Bold.ttf") format("truetype");
   font-weight: 700;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: "Cormorant Garamond";
-  src: url("assets/font/static/CormorantGaramond-Italic.ttf") format("truetype");
+  src: url("../assets/font/static/CormorantGaramond-Italic.ttf") format("truetype");
   font-weight: 400;
   font-style: italic;
   font-display: swap;
 }
 @font-face {
   font-family: "Cormorant Garamond";
-  src: url("assets/font/static/CormorantGaramond-LightItalic.ttf") format("truetype");
+  src: url("../assets/font/static/CormorantGaramond-LightItalic.ttf") format("truetype");
   font-weight: 300;
   font-style: italic;
   font-display: swap;
 }
 @font-face {
   font-family: "Cormorant Garamond";
-  src: url("assets/font/static/CormorantGaramond-MediumItalic.ttf") format("truetype");
+  src: url("../assets/font/static/CormorantGaramond-MediumItalic.ttf") format("truetype");
   font-weight: 500;
   font-style: italic;
   font-display: swap;
 }
 @font-face {
   font-family: "Cormorant Garamond";
-  src: url("assets/font/static/CormorantGaramond-SemiBoldItalic.ttf") format("truetype");
+  src: url("../assets/font/static/CormorantGaramond-SemiBoldItalic.ttf") format("truetype");
   font-weight: 600;
   font-style: italic;
   font-display: swap;
 }
 @font-face {
   font-family: "Cormorant Garamond";
-  src: url("assets/font/static/CormorantGaramond-BoldItalic.ttf") format("truetype");
+  src: url("../assets/font/static/CormorantGaramond-BoldItalic.ttf") format("truetype");
   font-weight: 700;
   font-style: italic;
   font-display: swap;
 }
+
 
 :root {
   --accent-red: #ff3c3c;
@@ -416,7 +418,7 @@ body::before{
   color: #ffb347;
 
   text-shadow:
-    0 0 10px rgba(255, 179, 71, 0.4),
+    0 0 10px rgba(255, 178, 71, 0.192),
     0 0 30px rgba(255, 179, 71, 0.2);
 
   opacity: 0.95;
@@ -437,7 +439,7 @@ body::before{
 .scroll {
   margin-top: 50px;
 
-  color: #ff4747;
+  color: #ffffff72;
 
   letter-spacing: 5px;
 
@@ -463,6 +465,8 @@ body::before{
 
 .intro-right {
   flex: 1;
+  display: flex;
+  align-items: center;
 }
 
 .intro h2 {
@@ -470,11 +474,28 @@ body::before{
   line-height: 1;
 }
 
+/* Red Text Matte Glass Card (Intro Section) */
 .intro p {
-  font-size: 1.3rem;
-  line-height: 1.8;
-  color: #ff0000;
+  font-size: 1.25rem;
+  line-height: 1.7;
+  color: #ff3b30;
+  
+  /* 1. Shiny Specular Gradient (Brighter top-left, fading to dark matte) */
+  background: linear-gradient(135deg, rgba(45, 45, 45, 0.8) 0%, rgba(15, 15, 15, 0.65) 100%);
+  backdrop-filter: blur(25px) saturate(120%);
+  -webkit-backdrop-filter: blur(25px) saturate(120%);
+  
+  border-radius: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.05); /* Soft baseline border */
+  padding: 2.2rem 2.5rem;
+  max-width: 520px;
+
+  /* 2. Dual-Layer Shadow: Inside top-left sharp highlight + Soft outer drop shadow */
+  box-shadow: 
+    inset 1.5px 1.5px 0px rgba(255, 255, 255, 0.25), 
+    0 20px 40px rgba(0, 0, 0, 0.5);
 }
+/* STORY SECTION */
 
 .story {
   height: 300vh;
@@ -484,7 +505,6 @@ body::before{
 .sticky {
   width: 50%;
   height: 100vh;
-  
   display: flex;
   justify-content: center;
   align-items: center;
@@ -510,18 +530,44 @@ body::before{
 
 .panel h2 {
   font-size: 5vw;
-  margin-bottom: 20px;
+  margin-bottom: 24px;
 }
 
+/* Red Text Matte Glass Card (Story Panels) */
 .panel p {
-  color: #ff0000;
-  font-size: 1.2rem;
+  color: #ff3b30;
+  font-size: 1.15rem;
+  line-height: 1.7;
+  text-align: center;
+  
+  /* 1. Shiny Specular Gradient (Brighter top-left, fading to dark matte) */
+  background: linear-gradient(135deg, rgba(45, 45, 45, 0.8) 0%, rgba(15, 15, 15, 0.65) 100%);
+  backdrop-filter: blur(25px) saturate(120%);
+  -webkit-backdrop-filter: blur(25px) saturate(120%);
+  
+  border-radius: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 2rem 2.5rem;
+  max-width: 460px;
+
+  /* 2. Dual-Layer Shadow: Inside top-left sharp highlight + Soft outer drop shadow */
+  box-shadow: 
+    inset 1.5px 1.5px 0px rgba(255, 255, 255, 0.25), 
+    0 20px 40px rgba(0, 0, 0, 0.5);
 }
+
+/* RESPONSIVE BREAKPOINTS */
 
 @media (max-width: 768px) {
   .intro {
     flex-direction: column;
     gap: 50px;
+    padding: 12vw 6vw;
+  }
+
+  .intro p, .panel p {
+    max-width: 100%;
+    padding: 1.5rem 1.8rem;
   }
 
   .story {
@@ -541,142 +587,111 @@ body::before{
   }
 }
 
-
 /* ==========================
- IL CAPO STYLE EDITORIAL
+   IL CAPO STYLE EDITORIAL
 ========================== */
 
-
-.editorial{
-
-    position:relative;
-
-    height:100vh;
-
-    background:#000;
-
-    overflow:hidden;
-
+.editorial {
+    position: relative;
+    height: 100vh;
+    background: #000;
+    overflow: hidden;
 }
-
-
 
 /* pinned viewport */
-
-
-.editorial-media{
-
-    position:sticky;
-
-    top:0;
-
-    height:100vh;
-
-    width:100%;
-
-
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-
-    overflow:hidden;
-
+.editorial-media {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
 }
-
-
 
 /* START SMALL STRIP */
-
-.editorial-img{
-
-    width:20vw;
-
-    height:12vh;
-
-
-    object-fit:cover;
-
-
-    border-radius:100px;
-
-
-    transform:scale(1);
-
-
-    will-change:
-    width,
-    height,
-    border-radius;
-
+.editorial-img {
+    width: 20vw;
+    height: 12vh;
+    object-fit: cover;
+    border-radius: 100px;
+    transform: scale(1);
+    will-change: width, height, border-radius;
 }
 
-
-
-/* TEXT OVERLAY */
-
-
-.editorial-content{
-
-    position:sticky;
-
-    top:0;
-
-    height:100vh;
-
-
-    margin-top:-100vh;
-
-
-    display:flex;
-
-    align-items:center;
-
-
-    padding-left:8vw;
-
-
-    pointer-events:none;
-
+/* TEXT OVERLAY CONTAINER */
+.editorial-content {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    width: 100%;
+    margin-top: -100vh;
+    
+    /* Changed to display flex with space distribution to split left and right sides */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    pointer-events: none;
 }
 
-
-
-.editorial-title{
-
-    overflow:hidden;
-
+/* LEFT TEXT AREA: FLOATING LIGHT MATTE GLASS CARD */
+.editorial-title {
+    width: fit-content;             /* Shrinks the box to fit just the text area width */
+    min-width: 35vw;                /* Ensures consistent layout structural shape */
+    height: auto;                   /* Removes full screen height so it only wraps the text */
+    opacity: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
+    /* Padding & Floating Positioning */
+    padding: 3.5rem 4rem;           /* Even padding around the text block */
+    margin-left: 5vw;               /* Offsets the card away from the left window edge */
+    overflow: hidden;
+    
+    /* 1. Lighter Premium Frosted Glassmorphism Effect */
+    background: rgba(255, 255, 255, 0.35); /* Switched to a bright, luminous white tint */
+    backdrop-filter: blur(30px) saturate(150%);
+    -webkit-backdrop-filter: blur(30px) saturate(150%);
+    
+    /* 2. Curved Edges & Clean Perimeter Border */
+    border-radius: 32px;            /* Smooth, modern rounded corner profiles */
+    border: 1px solid rgba(255, 255, 255, 0.45); /* Soft outer border highlights the glass edge */
+    
+    /* Elegant, weightless drop shadow */
+    box-shadow: 0 30px 70px rgba(0, 0, 0, 0.08); 
 }
 
-
-
-.editorial-title span{
-
-    display:block;
-
-
-    font-size:8vw;
-
-    font-weight:900;
-
-
-    line-height:.85;
-
-
-    color:rgb(98, 108, 124);
-
-
-    transform:translateY(120%);
-
+.editorial-title span {
+    display: block;
+    font-size: 6vw;                 /* Tailored cleanly for the floating box boundaries */
+    font-weight: 900;
+    line-height: 0.95;
+    white-space: nowrap;            
+    
+    /* 3. Text Color Contrast Adjustment */
+    color: #1c1c1e;                 /* Deep charcoal black for sharp legibility over light glass */
+    transform: translateY(120%);
 }
 
+/* RIGHT TEXT AREA: ADJUSTED & READABLE */
 .editorial-desc {
     opacity: 0;
     transform: translateY(20px);
-    padding-left: 8vw;
+    
+    width: 45vw;             /* Allocates separate column space on the right side */
+    max-width: 520px;
+    margin-left: auto;       /* Explicitly pushes the content panel to the right side */
+    padding-right: 8vw;
+    
+    /* Typography Adjustments for light backgrounds */
+    color: #111112;          /* Rich deep charcoal so it reads perfectly over light linen */
+    font-size: 1.2rem;
+    line-height: 1.6;
+    font-weight: 500;
+    text-shadow: 0 1px 2px rgba(255, 255, 255, 0.6); /* Subtle glow backdrop to maximize readability */
 }
-
 
 
 /* ==========================

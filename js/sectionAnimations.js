@@ -84,61 +84,50 @@ gsap.to(".mattress",{
     });
   });
 
-  /* ==========================
+/* ==========================
      IL CAPO STYLE EDITORIAL
   ========================== */
 
-const editorialTL =
-gsap.timeline({
-
-scrollTrigger:{
-
-trigger:".editorial",
-
-start:"top 5%",
-
-end:"+=3500",
-
-scrub:2,
-
-pin:true,
-
-anticipatePin:1
-
-}
-
+const editorialTL = gsap.timeline({
+  scrollTrigger: {
+    trigger: ".editorial",
+    start: "top 5%",
+    end: "+=3500",
+    scrub: 1,
+    pin: true,
+    anticipatePin: 1
+  }
 });
 
-  // image opening animation
-  editorialTL
-    .to(".editorial-img", {
-      width: "100vw",
-      height: "100vh",
-      borderRadius: "0px",
-      duration: 2,
-      ease: "power2.inOut",
-    })
+// 1. Image opening animation
+editorialTL.to(".editorial-img", {
+  width: "100vw",
+  height: "100vh",
+  borderRadius: "0px",
+  duration: 2,
+  ease: "power2.inOut",
+});
 
-    // text reveal after image open
-    .to(
-      ".editorial-title span",
-      {
-        y: 0,
-        stagger: 0.15,
-        duration: 1.5,
-        ease: "power4.out",
-      },
-      "-=0.5"
-    )
+// 2. Reveal the floating glass card background exactly as the image finishes zooming
+editorialTL.to(".editorial-title", {
+  opacity: 1,
+  duration: 1,
+  ease: "power2.out"
+}, "-=1"); // Overlaps with the last half of the image zoom for smooth blending
 
-    // description
-    .to(
-      ".editorial-desc",
-      {
-        opacity: 1,
-        y: -20,
-        duration: 1,
-      },
-      "-=1"
-    );
-};
+// 3. Text reveal inside the glass card
+editorialTL.to(".editorial-title span", {
+  y: 0,
+  stagger: 0.15,
+  duration: 1.5,
+  ease: "power4.out",
+}, "-=0.5");
+
+// 4. Description paragraph reveal
+editorialTL.to(".editorial-desc", {
+  opacity: 1,
+  y: -20,
+  duration: 1,
+}, "-=1");
+
+}
