@@ -1,3 +1,78 @@
+@font-face {
+  font-family: "Cormorant Garamond";
+  src: url("assets/font/static/CormorantGaramond-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Cormorant Garamond";
+  src: url("assets/font/static/CormorantGaramond-Light.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Cormorant Garamond";
+  src: url("assets/font/static/CormorantGaramond-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Cormorant Garamond";
+  src: url("assets/font/static/CormorantGaramond-SemiBold.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Cormorant Garamond";
+  src: url("assets/font/static/CormorantGaramond-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Cormorant Garamond";
+  src: url("assets/font/static/CormorantGaramond-Italic.ttf") format("truetype");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Cormorant Garamond";
+  src: url("assets/font/static/CormorantGaramond-LightItalic.ttf") format("truetype");
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Cormorant Garamond";
+  src: url("assets/font/static/CormorantGaramond-MediumItalic.ttf") format("truetype");
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Cormorant Garamond";
+  src: url("assets/font/static/CormorantGaramond-SemiBoldItalic.ttf") format("truetype");
+  font-weight: 600;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Cormorant Garamond";
+  src: url("assets/font/static/CormorantGaramond-BoldItalic.ttf") format("truetype");
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+
+:root {
+  --accent-red: #ff3c3c;
+}
+
 /* Hide default cursor */
 html,
 body {
@@ -279,7 +354,9 @@ body::before{
 .hero-title {
   font-size: 10vw;
 
+  font-family: "Cormorant Garamond", serif;
   font-weight: 900;
+  font-style: italic;
 
   letter-spacing: 10px;
 
@@ -295,6 +372,25 @@ body::before{
   text-shadow:
     0 0 20px rgba(245, 158, 11, 0.4),
     0 0 40px rgba(245, 158, 11, 0.2);
+
+}    
+
+.hero-title,
+.intro h2,
+.panel h2,
+.editorial-title span,
+.fabric-stack-title,
+.feature-panel h2,
+.layer-details h2,
+.product-info h3,
+.testimonial-header h2,
+.tech-panel h2,
+.comparison-header h2,
+.cta-container h2,
+.footer-brand h2 {
+  font-family: "Cormorant Garamond", serif;
+  font-weight: 700;
+  font-style: italic;
 }
 
 .hero-title,
