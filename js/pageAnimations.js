@@ -42,7 +42,7 @@ export const initPageAnimations = () => {
     },
   });
 
-gsap.fromTo(
+  gsap.fromTo(
     ".cta-buttons .cta-btn",
     { y: 35, opacity: 0, scale: 0.92 },
     {

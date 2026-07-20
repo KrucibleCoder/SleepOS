@@ -1,70 +1,65 @@
 export function initCursor() {
+  if (window.matchMedia("(hover: none), (pointer: coarse)").matches) {
+    return () => {};
+  }
 
-    if (window.matchMedia("(hover: none), (pointer: coarse)").matches) {
-        return () => {};
-    }
+  const cdot = document.getElementById("cdot");
+  const cring = document.getElementById("cring");
 
-    const cdot = document.getElementById("cdot");
-    const cring = document.getElementById("cring");
+  // If the cursor elements don't exist, don't do anything.
+  if (!cdot || !cring) return;
 
-    // If the cursor elements don't exist, don't do anything.
-    if (!cdot || !cring) return;
+  let cursorX = 0;
+  let cursorY = 0;
 
-    let cursorX = 0;
-    let cursorY = 0;
+  let ringX = 0;
+  let ringY = 0;
 
-    let ringX = 0;
-    let ringY = 0;
+  const updateCursor = (e) => {
+    cursorX = e.clientX;
+    cursorY = e.clientY;
+  };
 
-    const updateCursor = (e) => {
-        cursorX = e.clientX;
-        cursorY = e.clientY;
-    };
+  document.addEventListener("mousemove", updateCursor, { passive: true });
 
-    document.addEventListener("mousemove", updateCursor, { passive: true });
+  let animationFrame = 0;
 
-    let animationFrame = 0;
+  function cursorLoop() {
+    ringX += (cursorX - ringX) * 0.14;
+    ringY += (cursorY - ringY) * 0.14;
 
-    function cursorLoop() {
+    cdot.style.left = `${cursorX}px`;
+    cdot.style.top = `${cursorY}px`;
 
-        ringX += (cursorX - ringX) * 0.14;
-        ringY += (cursorY - ringY) * 0.14;
+    cring.style.left = `${ringX}px`;
+    cring.style.top = `${ringY}px`;
 
-        cdot.style.left = `${cursorX}px`;
-        cdot.style.top = `${cursorY}px`;
+    animationFrame = requestAnimationFrame(cursorLoop);
+  }
 
-        cring.style.left = `${ringX}px`;
-        cring.style.top = `${ringY}px`;
+  cursorLoop();
 
-        animationFrame = requestAnimationFrame(cursorLoop);
-    }
+  const interactiveElements = document.querySelectorAll("a, button");
+  const enter = () => {
+    cdot.classList.add("hover");
+    cring.classList.add("hover");
+  };
+  const leave = () => {
+    cdot.classList.remove("hover");
+    cring.classList.remove("hover");
+  };
 
-    cursorLoop();
+  interactiveElements.forEach((element) => {
+    element.addEventListener("mouseenter", enter);
+    element.addEventListener("mouseleave", leave);
+  });
 
-    const interactiveElements = document.querySelectorAll("a, button");
-    const enter = () => {
-        cdot.classList.add("hover");
-        cring.classList.add("hover");
-    };
-    const leave = () => {
-        cdot.classList.remove("hover");
-        cring.classList.remove("hover");
-    };
-
+  return () => {
+    cancelAnimationFrame(animationFrame);
+    document.removeEventListener("mousemove", updateCursor);
     interactiveElements.forEach((element) => {
-
-            element.addEventListener("mouseenter", enter);
-            element.addEventListener("mouseleave", leave);
-
-        });
-
-    return () => {
-        cancelAnimationFrame(animationFrame);
-        document.removeEventListener("mousemove", updateCursor);
-        interactiveElements.forEach((element) => {
-            element.removeEventListener("mouseenter", enter);
-            element.removeEventListener("mouseleave", leave);
-        });
-    };
-
+      element.removeEventListener("mouseenter", enter);
+      element.removeEventListener("mouseleave", leave);
+    });
+  };
 }

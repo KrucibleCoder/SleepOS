@@ -3,109 +3,103 @@
 import { gsap } from "./animationRuntime";
 
 export const initHeroAnimations = () => {
-const heroVideo = document.querySelector(".hero-video video");
-const mobileMode = window.matchMedia("(max-width: 768px)").matches;
- 
+  const heroVideo = document.querySelector(".hero-video video");
+  const mobileMode = window.matchMedia("(max-width: 768px)").matches;
+
   /* ==========================
    HERO CINEMATIC EXPERIENCE
 ========================== */
 
+  const heroTL = gsap.timeline({
+    scrollTrigger: {
+      trigger: ".hero",
 
-const heroTL = gsap.timeline({
+      start: "top top",
 
-    scrollTrigger:{
+      end: () => `+=${window.innerHeight}`,
 
-        trigger:".hero",
+      scrub: 1,
 
-        start:"top top",
+      pin: true,
 
-        end:() => `+=${window.innerHeight}`,
+      pinSpacing: false,
 
-        scrub:1,
+      anticipatePin: 1,
 
-        pin:true,
+      invalidateOnRefresh: true,
+      onLeave: () => heroVideo?.pause(),
+      onEnterBack: () => heroVideo?.play().catch(() => {}),
+    },
+  });
 
-        pinSpacing:false,
+  heroTL
 
-        anticipatePin:1,
+    .to(
+      ".hero-video video",
+      {
+        scale: mobileMode ? 1.12 : 1.25,
 
-        invalidateOnRefresh:true,
-        onLeave:() => heroVideo?.pause(),
-        onEnterBack:() => heroVideo?.play().catch(() => {})
+        filter: mobileMode ? "brightness(0.62)" : "brightness(0.45)",
 
-    }
+        ease: "none",
+      },
+      0,
+    )
 
-});
+    .to(
+      ".hero-overlay",
+      {
+        backgroundColor: "rgba(0, 0, 0, 0.72)",
 
+        ease: "none",
+      },
+      0,
+    );
 
-heroTL
-
-
-.to(".hero-video video",{
-
-    scale:mobileMode ? 1.12 : 1.25,
-
-    filter:mobileMode ? "brightness(0.62)" : "brightness(0.45)",
-
-    ease:"none"
-
-},0)
-
-.to(".hero-overlay",{
-
-    backgroundColor:"rgba(0, 0, 0, 0.72)",
-
-    ease:"none"
-
-},0);
-
-/* ==========================
+  /* ==========================
    HERO LOAD REVEAL
 ========================== */
 
+  gsap.from(".hero-title", {
+    y: 120,
 
-gsap.from(".hero-title",{
+    opacity: 0,
 
-    y:120,
+    letterSpacing: "50px",
 
-    opacity:0,
+    duration: 1.5,
 
-    letterSpacing:"50px",
+    delay: 0.5,
 
-    duration:1.5,
+    ease: "power4.out",
 
-    delay:.5,
+    onComplete: () =>
+      gsap.set(".hero-title", {
+        clearProps: "transform,opacity,letterSpacing",
+      }),
+  });
 
-    ease:"power4.out",
+  gsap.from(".hero-subtitle", {
+    y: 60,
 
-    onComplete:() => gsap.set(".hero-title", { clearProps:"transform,opacity,letterSpacing" })
+    opacity: 0,
 
-});
+    duration: 1.3,
 
+    delay: 0.8,
 
-gsap.from(".hero-subtitle",{
+    ease: "power3.out",
 
-    y:60,
+    onComplete: () =>
+      gsap.set(".hero-subtitle", { clearProps: "transform,opacity" }),
+  });
 
-    opacity:0,
-
-    duration:1.3,
-
-    delay:.8,
-
-    ease:"power3.out",
-
-    onComplete:() => gsap.set(".hero-subtitle", { clearProps:"transform,opacity" })
-
-});
-
-gsap.to(".scroll", {
+  gsap.to(".scroll", {
     y: 9,
     opacity: 0.42,
     duration: 1.1,
     repeat: -1,
     yoyo: true,
-    ease: "sine.inOut"
-});
-
-}
+    ease: "sine.inOut",
+  });
+};

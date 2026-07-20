@@ -55,7 +55,7 @@ export const initFeatureSection = () => {
     gsap.fromTo(
       mattressVideo,
       { scale: 0.96, opacity: 0.6 },
-      { scale: 1, opacity: 1, duration: 0.6, ease: "power2.out" }
+      { scale: 1, opacity: 1, duration: 0.6, ease: "power2.out" },
     );
   };
 
@@ -84,14 +84,20 @@ export const initFeatureSection = () => {
     ScrollTrigger.create({
       trigger: panel,
       start: "top center",
-      onEnter: () => swapVideo(
-        mobileMode ? panel.dataset.mobileVideo || panel.dataset.video : panel.dataset.video,
-        index,
-      ),
-      onEnterBack: () => swapVideo(
-        mobileMode ? panel.dataset.mobileVideo || panel.dataset.video : panel.dataset.video,
-        index,
-      ),
+      onEnter: () =>
+        swapVideo(
+          mobileMode
+            ? panel.dataset.mobileVideo || panel.dataset.video
+            : panel.dataset.video,
+          index,
+        ),
+      onEnterBack: () =>
+        swapVideo(
+          mobileMode
+            ? panel.dataset.mobileVideo || panel.dataset.video
+            : panel.dataset.video,
+          index,
+        ),
     });
   });
 };

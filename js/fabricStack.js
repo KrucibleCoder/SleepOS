@@ -6,7 +6,9 @@ export const initFabricStack = () => {
   const cards = gsap.utils.toArray(".fabric-card");
   if (!cards.length) return;
   const mobileMode = window.matchMedia("(max-width: 768px)").matches;
-  const finePointer = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+  const finePointer = window.matchMedia(
+    "(hover: hover) and (pointer: fine)",
+  ).matches;
 
   gsap.from(".fabric-stack-title", {
     y: 55,
@@ -21,19 +23,21 @@ export const initFabricStack = () => {
   });
 
   // final spread positions (left to right fan)
-  const spread = mobileMode ? [
-    { x: -96, y: 22, rotate: -12 },
-    { x: -48, y: 8, rotate: -6 },
-    { x: 0, y: 0, rotate: 0 },
-    { x: 48, y: 8, rotate: 6 },
-    { x: 96, y: 22, rotate: 12 },
-  ] : [
-    { x: -520, y: 30, rotate: -16 },
-    { x: -260, y: 8, rotate: -8 },
-    { x: 0, y: 0, rotate: 0 },
-    { x: 260, y: 8, rotate: 8 },
-    { x: 520, y: 30, rotate: 16 },
-  ];
+  const spread = mobileMode
+    ? [
+        { x: -96, y: 22, rotate: -12 },
+        { x: -48, y: 8, rotate: -6 },
+        { x: 0, y: 0, rotate: 0 },
+        { x: 48, y: 8, rotate: 6 },
+        { x: 96, y: 22, rotate: 12 },
+      ]
+    : [
+        { x: -520, y: 30, rotate: -16 },
+        { x: -260, y: 8, rotate: -8 },
+        { x: 0, y: 0, rotate: 0 },
+        { x: 260, y: 8, rotate: 8 },
+        { x: 520, y: 30, rotate: 16 },
+      ];
 
   // initial stacked state — all cards centered, slightly offset/rotated like a real deck
   gsap.set(cards, {
@@ -63,7 +67,7 @@ export const initFabricStack = () => {
         duration: 1,
         ease: "power3.out",
       },
-      i * 0.15 // staggered along the scrubbed scroll timeline
+      i * 0.15, // staggered along the scrubbed scroll timeline
     );
   });
 
@@ -71,35 +75,36 @@ export const initFabricStack = () => {
      CLICK / HOVER INTERACTIONS
   ========================== */
 
-  if (finePointer) cards.forEach((card) => {
-    // subtle lift on hover, on top of its scroll-set position
-    card.addEventListener("mouseenter", () => {
-      gsap.to(card, {
-        y: "-=14",
-        duration: 0.35,
-        ease: "power2.out",
-        overwrite: "auto",
+  if (finePointer)
+    cards.forEach((card) => {
+      // subtle lift on hover, on top of its scroll-set position
+      card.addEventListener("mouseenter", () => {
+        gsap.to(card, {
+          y: "-=14",
+          duration: 0.35,
+          ease: "power2.out",
+          overwrite: "auto",
+        });
       });
-    });
 
-    card.addEventListener("mouseleave", () => {
-      gsap.to(card, {
-        y: "+=14",
-        duration: 0.35,
-        ease: "power2.out",
-        overwrite: "auto",
+      card.addEventListener("mouseleave", () => {
+        gsap.to(card, {
+          y: "+=14",
+          duration: 0.35,
+          ease: "power2.out",
+          overwrite: "auto",
+        });
       });
-    });
 
-    // quick press-down feedback on click before navigating
-    card.addEventListener("click", (e) => {
-      gsap.to(card, {
-        scale: 0.96,
-        duration: 0.15,
-        ease: "power1.inOut",
-        yoyo: true,
-        repeat: 1,
+      // quick press-down feedback on click before navigating
+      card.addEventListener("click", (e) => {
+        gsap.to(card, {
+          scale: 0.96,
+          duration: 0.15,
+          ease: "power1.inOut",
+          yoyo: true,
+          repeat: 1,
+        });
       });
     });
-  });
 };

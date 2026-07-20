@@ -39,9 +39,16 @@ export const initParticleBackgrounds = () => {
   const pointer = { x: -1000, y: -1000, active: false };
 
   const createParticles = (width, height) => {
-    const density = reducedMotion ? 56000 : mobilePerformanceMode ? 48000 : 23000;
+    const density = reducedMotion
+      ? 56000
+      : mobilePerformanceMode
+        ? 48000
+        : 23000;
     const maxParticles = mobilePerformanceMode ? 30 : 68;
-    const count = Math.max(12, Math.min(maxParticles, Math.round((width * height) / density)));
+    const count = Math.max(
+      12,
+      Math.min(maxParticles, Math.round((width * height) / density)),
+    );
 
     return Array.from({ length: count }, () => ({
       x: Math.random() * width,
@@ -50,7 +57,8 @@ export const initParticleBackgrounds = () => {
       vy: (Math.random() - 0.5) * 0.28,
       radius: 0.7 + Math.random() * 1.7,
       alpha: 0.2 + Math.random() * 0.42,
-      color: PARTICLE_COLORS[Math.floor(Math.random() * PARTICLE_COLORS.length)],
+      color:
+        PARTICLE_COLORS[Math.floor(Math.random() * PARTICLE_COLORS.length)],
     }));
   };
 
@@ -60,7 +68,10 @@ export const initParticleBackgrounds = () => {
       1,
       Math.min(window.innerHeight, state.section.offsetHeight),
     );
-    const dpr = Math.min(window.devicePixelRatio || 1, mobilePerformanceMode ? 1 : 1.5);
+    const dpr = Math.min(
+      window.devicePixelRatio || 1,
+      mobilePerformanceMode ? 1 : 1.5,
+    );
 
     state.width = width;
     state.height = height;
@@ -197,24 +208,25 @@ export const initParticleBackgrounds = () => {
       for (let i = 0; i < state.particles.length; i += 1) {
         const particle = state.particles[i];
 
-        if (!mobilePerformanceMode) for (let j = i + 1; j < state.particles.length; j += 1) {
-          const neighbor = state.particles[j];
-          const distance = Math.hypot(
-            particle.x - neighbor.x,
-            particle.y - neighbor.y,
-          );
+        if (!mobilePerformanceMode)
+          for (let j = i + 1; j < state.particles.length; j += 1) {
+            const neighbor = state.particles[j];
+            const distance = Math.hypot(
+              particle.x - neighbor.x,
+              particle.y - neighbor.y,
+            );
 
-          if (distance < 92) {
-            context.beginPath();
-            context.moveTo(particle.x, particle.y);
-            context.lineTo(neighbor.x, neighbor.y);
-            context.strokeStyle = `rgba(255, 210, 145, ${
-              (1 - distance / 92) * 0.09
-            })`;
-            context.lineWidth = 0.6;
-            context.stroke();
+            if (distance < 92) {
+              context.beginPath();
+              context.moveTo(particle.x, particle.y);
+              context.lineTo(neighbor.x, neighbor.y);
+              context.strokeStyle = `rgba(255, 210, 145, ${
+                (1 - distance / 92) * 0.09
+              })`;
+              context.lineWidth = 0.6;
+              context.stroke();
+            }
           }
-        }
 
         if (pointerInside) {
           const pointerDistance = Math.hypot(
@@ -253,12 +265,7 @@ export const initParticleBackgrounds = () => {
         glow.addColorStop(0, "rgba(255, 179, 71, 0.075)");
         glow.addColorStop(1, "rgba(255, 179, 71, 0)");
         context.fillStyle = glow;
-        context.fillRect(
-          localPointerX - 95,
-          localPointerY - 95,
-          190,
-          190,
-        );
+        context.fillRect(localPointerX - 95, localPointerY - 95, 190, 190);
       }
     });
 

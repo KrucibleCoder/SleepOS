@@ -42,7 +42,10 @@ export default function SleepOSRuntime() {
       lenis.scrollTo(0, { immediate: true, force: true });
       root.classList.remove("is-loading");
       document.body.classList.remove("is-loading");
-      document.querySelector(".hero-video video")?.play().catch(() => {});
+      document
+        .querySelector(".hero-video video")
+        ?.play()
+        .catch(() => {});
       lenis.start();
       ScrollTrigger.refresh();
     };
