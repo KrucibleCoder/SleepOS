@@ -42,18 +42,22 @@ export const initPageAnimations = () => {
     },
   });
 
-  gsap.from(".cta-buttons .cta-btn", {
-    y: 35,
-    opacity: 0,
-    scale: 0.92,
-    stagger: 0.12,
-    duration: 0.8,
-    ease: "back.out(1.5)",
-    scrollTrigger: {
-      trigger: ".cta-buttons",
-      start: "top 88%",
+gsap.fromTo(
+    ".cta-buttons .cta-btn",
+    { y: 35, opacity: 0, scale: 0.92 },
+    {
+      y: 0,
+      opacity: 1,
+      scale: 1,
+      stagger: 0.12,
+      duration: 0.8,
+      ease: "back.out(1.5)",
+      scrollTrigger: {
+        trigger: ".cta-buttons",
+        start: "top 88%",
+      },
     },
-  });
+  );
 
   gsap.from(".table-row", {
     opacity: 0,
